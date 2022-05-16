@@ -164,12 +164,12 @@ ELSE 'Salário não especificado'
 END AS faixa_salarial,
 
 CASE
-WHEN salario_mensal <= 0 THEN 0
-WHEN salario_mensal BETWEEN 0 AND 1212 THEN 1
-WHEN salario_mensal BETWEEN 1212 AND 1212 * 5 THEN 2
-WHEN salario_mensal BETWEEN 5 * 1212 AND 10 * 1212 THEN 3
-WHEN salario_mensal >= 10 * 1212 THEN 4
-ELSE -1
+WHEN salario_mensal <= 0 THEN 1
+WHEN salario_mensal BETWEEN 0 AND 1212 THEN 2
+WHEN salario_mensal BETWEEN 1212 AND 1212 * 5 THEN 3
+WHEN salario_mensal BETWEEN 5 * 1212 AND 10 * 1212 THEN 4
+WHEN salario_mensal >= 10 * 1212 THEN 5
+ELSE 0
 END AS ordem
 
 FROM `basedosdados.br_me_caged.microdados_movimentacoes` 
