@@ -156,10 +156,10 @@ SELECT
 
 CASE
 WHEN salario_mensal <= 0 THEN 'Sem salário'
-WHEN salario_mensal BETWEEN 0 AND 1212 THEN 'Até 1 salário minímo'
-WHEN salario_mensal BETWEEN 1212 AND 1212 * 5 THEN 'De 1 até 5 salários minímos'
-WHEN salario_mensal BETWEEN 5 * 1212 AND 10 * 1212 THEN 'De 5 até 10 salários minímos'
-WHEN salario_mensal >= 10 * 1212 THEN 'Maior que 10 salários minímos'
+WHEN salario_mensal BETWEEN 0 AND 1212 THEN 'Até 1 salário mínimo'
+WHEN salario_mensal BETWEEN 1212 AND 1212 * 5 THEN 'De 1 até 5 salários mínimos'
+WHEN salario_mensal BETWEEN 5 * 1212 AND 10 * 1212 THEN 'De 5 até 10 salários mínimos'
+WHEN salario_mensal >= 10 * 1212 THEN 'Maior que 10 salários mínimos'
 ELSE 'Salário não especificado'
 END AS faixa_salarial,
 
@@ -304,6 +304,10 @@ SELECT
   
 FROM `basedosdados.br_inep_ideb.escola` 
 WHERE ano = 2019 and sigla_uf = 'SP'
+```
+
+# ATIVIDADE 14.7
+
 
 
 
