@@ -307,6 +307,77 @@ WHERE ano = 2019 and sigla_uf = 'SP'
 ```
 
 # ATIVIDADE 14.7
+```sql
+
+SELECT 
+  ROUND (AVG (indicador_rendimento), 3) AS media_ideb,
+  ROUND (AVG (nota_saeb_lingua_portuguesa)) AS media_portugues,
+  ROUND (AVG (nota_saeb_matematica)) AS media_matematica,
+  sigla_uf,
+  ano
+
+
+FROM `basedosdados.br_inep_ideb.escola` 
+WHERE ano = 2019
+GROUP BY sigla_uf, ano
+ORDER BY media_ideb DESC
+
+--
+
+SELECT 
+  ROUND (AVG (indicador_rendimento), 3) AS media_ideb,
+  ROUND (AVG (nota_saeb_lingua_portuguesa)) AS media_portugues,
+  ROUND (AVG (nota_saeb_matematica)) AS media_matematica,
+  id_municipio,
+  ano
+
+
+FROM `basedosdados.br_inep_ideb.escola` 
+WHERE id_municipio = '3529005'
+GROUP BY id_municipio, ano
+ORDER BY ano DESC
+
+--
+
+SELECT 
+  ROUND (AVG (indicador_rendimento), 3) AS media_ideb,
+  ROUND (AVG (nota_saeb_lingua_portuguesa)) AS media_portugues,
+  ROUND (AVG (nota_saeb_matematica)) AS media_matematica,
+  sigla_uf,
+  ano
+
+
+FROM `basedosdados.br_inep_ideb.escola` 
+WHERE sigla_uf = 'SP'
+GROUP BY sigla_uf, ano
+ORDER BY ano DESC
+
+--
+
+SELECT 
+  ROUND (AVG (indicador_rendimento), 3) AS media_ideb,
+  ROUND (AVG (nota_saeb_lingua_portuguesa)) AS media_portugues,
+  ROUND (AVG (nota_saeb_matematica)) AS media_matematica,
+  id_municipio,
+  id_escola,
+  ano
+
+
+FROM `basedosdados.br_inep_ideb.escola` 
+WHERE id_municipio = '3529005' AND ano = 2019
+GROUP BY id_municipio, ano, id_escola
+ORDER BY media_ideb DESC
+```
+
+O Índice de Desenvolvimento da Educação Básica (IDEB) é um indicador criado pelo Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP), em 2007, para servir de referência da avaliação da educação básica no Brasil. Seu resultado é obtido a partir do rendimento escolar (que considera avaliações e evasão escolar) e pelas provas do Sistema Nacional de Avaliação Básica (SAEB). O objetivo do indicador é servir como uma referência estatísticas sobre o desempenho e progresso dos alicerces da educação básica, a saber, alfabetização e assimilalação de operações básicas da matemática.
+
+Entendendo do que se trata o indicador, seu objetivo e como ele é operacionalizado, podemos refletir melhor sobre as diferenças entre a média do município de Marília e suas melhores escolas em comparação com a média do Estado de São Paulo. 
+
+De modo geral, São Paulo apresentou, junto com o Estado do Ceará, um bom desempenho nos indicadores de avaliação básica do Governo Federal no ano de 2019 - último ano em que as provas foram realizadas, em virtude da pandemia. A média IDEB do Estado de são Paulo em 2019 foi de 0,956 e na cidade de Marília a média foi de 0,968. A pequena diferença positiva pode ser atribuída com uma política de valorização salarial dos profissionais da rede municipal, embora os atrasos nas realizações de concursos possam ter influenciado em uma nota menor em relação a 2017, quando Marília obteve 0,973. 
+
+No caso da escola melhor colocada, ela está incluída em um seleto grupo de escolas públicas municipais com prioridade de gestão, prática que não é exclusiva do município de Marília. Por se tratar de uma política nacional, baseada em indicadores públicos, é de interesse do município que suas escolas figurem entre as mais bem avaliadas, pois isso confere legitimidade política em relação a gestão da educação no município. Isso posto, é uma prática comum que os executivos municipais orientem suas políticas de educação para que as escolas melhorem seus desempenhos nos indicadores de avaliação. No caso das escolas mais bem colacadas em Marília, elas fazem parte desse grupo que recebe prioridade de gestão, tanto estadual (como é o caso da ETEC Antonio Devisate), seja municipal, como é o caso da melhor colocada na média IDEB.
+
+Contudo, não é possível considerar esse um fator determinante, haja visto que, de modo geral, as escolas de Marília figuraram todas bem e com notas próximas a média do Estado e do município, com a menor nota sendo 0,945.
 
 
 
